@@ -1,33 +1,57 @@
 # Lab 1: Divide and Conquer
 
-This lab explores the Divide and Conquer paradigm through 6 exercises.
-Each exercise should be solved using Divide and Conquer approach:
-
-1. Divide the problem into smaller subproblems
-2. Solve subproblems recursively (conquer)
-3. Combine solutions to solve the original problem
+## How Divide and Conquer Works:
+1. **Divide**: Break the problem into smaller subproblems (usually halves)
+2. **Conquer**: Solve the subproblems recursively
+3. **Combine**: Merge the solutions to solve the original problem
 
 ## Exercises:
 
 ### Exercise 1: Sum Array
-Implement `sumArray(arr []int) int` to calculate the sum of all elements in the array using Divide and Conquer.
+**Goal**: Calculate sum of all numbers in an array  
+**Rough instructions**: 
+- If array is empty, return 0
+- If array has 1 element, return that element  
+- Otherwise: split array into two halves, sum each half recursively, add results
 
-### Exercise 2: Plus Minus
-Implement `plusMinus(arr []int) int` to compute v1 - v2 + v3 - v4 + ... ± vn using Divide and Conquer.
+### Exercise 2: Plus Minus  
+**Goal**: Compute v1 - v2 + v3 - v4 + ...  
+**Rough instructions**:
+- Base case: empty array → 0, single element → that element
+- For array [a,b,c,d]: compute (a-b) + (c-d) recursively
+- Split array in half, compute each half, combine carefully with alternating signs
 
 ### Exercise 3: Find Maximum
-Implement `findMax(arr []int) int` to find the maximum element in an array using Divide and Conquer.
+**Goal**: Find largest number in array  
+**Rough instructions**:
+- Base case: single element → return it
+- Split array in half, find max in each half, return larger of the two
 
 ### Exercise 4: Find Max and Min
-Implement `findMaxMin(arr []int) (int, int)` to find both maximum and minimum elements in an array using Divide and Conquer.
+**Goal**: Find both largest and smallest numbers  
+**Rough instructions**:
+- Base case: single element → return (element, element)
+- Split array in half, get (max1, min1) and (max2, min2) from each half
+- Combine: overall max = max(max1, max2), overall min = min(min1, min2)
 
 ### Exercise 5: Count Value
-Implement `countValue(arr []int, value int) int` to count occurrences of a specific value in an array using Divide and Conquer.
+**Goal**: Count how many times a specific value appears  
+**Rough instructions**:
+- Base case: empty array → return 0
+- Single element: if element equals value → return 1, else → 0  
+- Split array in half, count in each half, add results
 
-### Exercise 6: Maximum Subarray Sum
-Implement `maxSubarraySum(arr []int) int` to find the maximum sum of any contiguous subarray using Divide and Conquer.
+### Exercise 6: Maximum Subarray Sum (Harder)
+**Goal**: Find maximum sum of any contiguous subarray  
+**Rough instructions**:
+- Split array into left and right halves
+- Three possibilities for max sum:
+  1. Entirely in left half → solve recursively
+  2. Entirely in right half → solve recursively  
+  3. Crosses middle → compute max sum ending at middle + max sum starting at middle
+- Return maximum of these three
 
-Note: For maximum subarray sum, remember to consider:
-1. Maximum sum entirely in left half
-2. Maximum sum entirely in right half
-3. Maximum sum crossing the midpoint
+**Hint for crossing sum**:
+- Left side: start from middle, go left, find maximum sum
+- Right side: start from middle+1, go right, find maximum sum
+- Crossing sum = left sum + right sum
