@@ -1,4 +1,3 @@
-package 
 package main
 
 import (
@@ -64,9 +63,9 @@ func TestFindMax(t *testing.T) {
 
 func TestFindMaxMin(t *testing.T) {
 	tests := []struct {
-		arr           []int
-		expectedMax   int
-		expectedMin   int
+		arr         []int
+		expectedMax int
+		expectedMin int
 	}{
 		{[]int{3, 7, 2, 9, 1}, 9, 1},
 		{[]int{-5, -2, -10}, -2, -10},
@@ -77,7 +76,7 @@ func TestFindMaxMin(t *testing.T) {
 	for _, test := range tests {
 		max, min := findMaxMin(test.arr)
 		if max != test.expectedMax || min != test.expectedMin {
-			t.Errorf("findMaxMin(%v) = (%d, %d), expected (%d, %d)", 
+			t.Errorf("findMaxMin(%v) = (%d, %d), expected (%d, %d)",
 				test.arr, max, min, test.expectedMax, test.expectedMin)
 		}
 	}
@@ -98,7 +97,7 @@ func TestCountValue(t *testing.T) {
 	for _, test := range tests {
 		result := countValue(test.arr, test.value)
 		if result != test.expected {
-			t.Errorf("countValue(%v, %d) = %d, expected %d", 
+			t.Errorf("countValue(%v, %d) = %d, expected %d",
 				test.arr, test.value, result, test.expected)
 		}
 	}
@@ -118,7 +117,7 @@ func TestMaxSubarraySum(t *testing.T) {
 	for _, test := range tests {
 		result := maxSubarraySum(test.arr)
 		if result != test.expected {
-			t.Errorf("maxSubarraySum(%v) = %d, expected %d", 
+			t.Errorf("maxSubarraySum(%v) = %d, expected %d",
 				test.arr, result, test.expected)
 		}
 	}
