@@ -11,7 +11,7 @@ func TestIntervalSchedulingEarliestFinish(t *testing.T) {
 	}{
 		{
 			[]Interval{{1, 4}, {2, 5}, {7, 9}, {6, 10}, {8, 11}},
-			3, // (1,4), (7,9), or similar
+			2, // (1,4), (7,9), or similar
 		},
 		{
 			[]Interval{{1, 3}, {2, 4}, {3, 5}, {5, 7}},
@@ -38,7 +38,7 @@ func TestIntervalSchedulingLatestStart(t *testing.T) {
 	}{
 		{
 			[]Interval{{1, 4}, {2, 5}, {7, 9}, {6, 10}, {8, 11}},
-			3,
+			2,
 		},
 		{
 			[]Interval{{1, 3}, {2, 4}, {3, 5}, {5, 7}},
