@@ -10,6 +10,12 @@ func QSort(arr []int, left, right int) {
 	// Base case: if left >= right, return
 	// Partition the array using pivot (suggest using last element)
 	// Recursively sort left and right partitions
+	if left >= right {
+		return
+	}
+	pivPos := rearrange(arr, left, right)
+	QSort(arr, left, pivPos-1)
+	QSort(arr, pivPos+1, right)
 }
 
 // rearrange partitions the array and returns pivot position
@@ -17,7 +23,15 @@ func rearrange(arr []int, left, right int) int {
 	// TODO: Implement the partition function
 	// Use l and r pointers as shown in slides
 	// Return final pivot position
-	return -1
+	pivot := arr[right]
+	i := left
+	for j := right; i < j; j++ {
+		if arr[i] > arr[right] {
+			arr[i], arr[right] = arr[right], arr[i]
+			i++
+		}
+	}
+	return i + 1
 }
 
 // ========== Mergesort ==========
